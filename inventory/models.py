@@ -12,6 +12,6 @@ class Game(models.Model):
       ('S', 'Sell'),
     )
     name = models.CharField(max_length=300)
-    location = models.CharField(max_length=1, choices=LOCATION, default='H')
-    genres = models.ManyToManyField(Genre)
-    comment = models.CharField(max_length=500, default='')
+    location = models.CharField(max_length=1, choices=LOCATION, default='H', blank=True)
+    genres = models.ManyToManyField(Genre, blank=True)
+    comment = models.CharField(max_length=500, default='', blank=True)
