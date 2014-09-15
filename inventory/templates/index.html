@@ -1,9 +1,9 @@
-{% if game %}
-    <ul>
-    {% for game in games %}
-        <li><a href="/inventory/{{ game.id }}/">{{ game.name }}</a></li>
-    {% endfor %}
-    </ul>
+{% if games %}
+<ul>
+  {% for game in games %}
+  <li><a href="/game/{{ game.id }}/">{{ game.name }}</a></li>
+  {% endfor %}
+</ul>
 {% else %}
-    <p>No games are available.</p>
+<p>No games are available.</p>
 {% endif %}

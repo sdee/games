@@ -15,3 +15,6 @@ class Game(models.Model):
     location = models.CharField(max_length=1, choices=LOCATION, default='H', blank=True)
     genres = models.ManyToManyField(Genre, blank=True)
     comment = models.CharField(max_length=500, default='', blank=True)
+
+    def __unicode__(self):
+        return self.name
