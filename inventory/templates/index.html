@@ -1,4 +1,10 @@
 {% load bootstrap3 %}
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static "css/jquery.bootgrid.css" %}">
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/jquery.bootgrid.js" %}"></script>
+
 <div class="container theme-showcase" role="main">
 <div class="jumbotron">
   Welcome!
@@ -6,12 +12,28 @@
 
 {% bootstrap_css %}
 {% if games %}
-<ul>
-  {% for game in games %}
-  <li><a href="/game/{{ game.id }}/">{{ game.name }}</a></li>
-  {% endfor %}
-</ul>
+
+
+<table id="grid-basic" data-toggle="bootgrid" class="table table-condensed table-hover table-striped" >
+    <thead>
+        <tr>
+            <th data-column-id="name">T</th>
+            <th data-column-id="location">Location</th>
+            <th data-column-id="comment">Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for game in games %}
+        <tr>
+        <td><a href="/game/{{ game.id }}/">{{ game.name }}</a></td>
+        <td>{{game.location_verbose}}</td>
+        <td>{{game.comment}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
 {% else %}
 <p>No games are available.</p>
 {% endif %}
 </div>
+<script src="{% static "js/init.js" %}"></script>
