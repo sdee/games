@@ -1,3 +1,10 @@
+{% load bootstrap3 %}
+<div class="container theme-showcase" role="main">
+<div class="jumbotron">
+  Welcome!
+</div>
+
+{% bootstrap_css %}
 {% if games %}
 <ul>
   {% for game in games %}
@@ -7,3 +14,4 @@
 {% else %}
 <p>No games are available.</p>
 {% endif %}
+</div>
