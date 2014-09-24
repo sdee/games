@@ -1,12 +1,8 @@
 {% load bootstrap3 %}
 {% load staticfiles %}
 
-<link rel="stylesheet" href="{% static "css/jquery.bootgrid.css" %}">
-<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 <script src="{% static "js/jquery.js" %}"></script>
-<script src="{% static "js/jquery.bootgrid.js" %}"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <div class="container theme-showcase" role="main">
 <div class="jumbotron">
   Welcome!
@@ -15,9 +11,7 @@
 {% bootstrap_css %}
 {% if games %}
 
-
-<table id="grid-basic" data-toggle="bootgrid" class="table table-condensed table-hover table-striped" >
-
+<table>
     <thead>
         <tr>
             <th data-column-id="name">T</th>
@@ -29,7 +23,7 @@
       {% for game in games %}
         <tr>
         <td><a href="/game/{{ game.id }}/">{{ game.name }}</a></td>
-        <td><a href="#" class="editloc" data-type="text" data-pk="1" data-url="/post" data-title="Enter username">H</div></td>
+        <td>{{game.location}}</td>
         <td>{{game.comment}}</td>
       </tr>
       {% endfor %}
